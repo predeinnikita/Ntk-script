@@ -14,19 +14,19 @@ function initIframe() {
   let iframe = document.createElement('iframe');
   iframe.src = 'https://predeinnikita.github.io/ntk-script/'
   document.body.insertAdjacentElement('beforeend', iframe);
-  const iframeStyles = {
-        position: 'fixed',
-        right: '-50000px',
-        top: '90%',
-        width: '658px',
-        height: '56px',
-        display: 'block',
-        'z-index': '99999999',
-        overflow: 'auto',
-        'background-color': 'white',
-        opacity: 0.3
-  }
-  setCss(iframe, iframeStyles);
+  setCss(iframe, {
+    position: 'fixed',
+    right: '-50000px',
+    top: '90%',
+    width: '658px',
+    height: '56px',
+    display: 'block',
+    'z-index': '99999999',
+    overflow: 'auto',
+    'background-color': 'white',
+    opacity: 0.3
+  });
+  
   return iframe;
 }
 
