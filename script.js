@@ -1,8 +1,8 @@
 let iframe = document.createElement('iframe');
-iframe.src = 'your answers source'
+iframe.src = 'https://predeinnikita.github.io/ntk-script/'
 document.body.insertAdjacentElement('beforeend', iframe);
 
-function bindCss(element, styles) {
+function setCss(element, styles) {
   for (s in styles) {
     element.style[s] = styles[s];
   }
@@ -32,19 +32,20 @@ const iframeStyles = {
         display: 'block',
         'z-index': '99999999',
         overflow: 'auto',
-        'background-color': 'white'
+        'background-color': 'white',
+        opacity: 0.3
 }
 
-bindCss(iframe, iframeStyles);
+setCss(iframe, iframeStyles);
 
 runOnKeys(() => {
-  bindCss(iframe, {
+  setCss(iframe, {
     right: '-50000px',
   })
-}, 'KeyE');
+}, 'KeyE', 'KeyW');
 
 runOnKeys(() => {
-  bindCss(iframe, {
+  setCss(iframe, {
     right: '5px',
   })
-}, 'KeyQ');
+}, 'KeyQ', 'KeyW');
