@@ -1,29 +1,20 @@
-let iframe = document.createElement('iframe');
-iframe.src = 'https://predeinnikita.github.io/ntk-script/'
-document.body.insertAdjacentElement('beforeend', iframe);
+start();
 
-function setCss(element, styles) {
-  for (s in styles) {
-    element.style[s] = styles[s];
-  }
+function start() {
+  const iframe = initIframe();
+
+  runOnKeys(() => {
+    setCss(iframe, {
+      right: iframe.style.right == '-50000px'? '5px': '-50000px'
+    })
+  }, 'KeyQ', 'KeyW');
 }
 
-function runOnKeys(func, ...codes) {
-  let pressed = new Set();
-  document.addEventListener('keydown', function(event) {
-    pressed.add(event.code);
-    for (let code of codes) {
-      if (!pressed.has(code)) { return; }
-    }
-    pressed.clear();
-    func();
-  });
-  document.addEventListener('keyup', function(event) {
-    pressed.delete(event.code);
-  });
-}
-
-const iframeStyles = {
+function initIframe() {
+  let iframe = document.createElement('iframe');
+  iframe.src = 'https://predeinnikita.github.io/ntk-script/'
+  document.body.insertAdjacentElement('beforeend', iframe);
+  const iframeStyles = {
         position: 'fixed',
         right: '-50000px',
         top: '90%',
@@ -34,18 +25,28 @@ const iframeStyles = {
         overflow: 'auto',
         'background-color': 'white',
         opacity: 0.3
+  }
+  setCss(iframe, iframeStyles);
+  return iframe;
 }
 
-setCss(iframe, iframeStyles);
+function runOnKeys(func, ...codes) {
+  let pressed = new Set();
+  document.addEventListener('keydown', function(event) {
+    pressed.add(event.code);
+  for (let code of codes) {
+    if (!pressed.has(code)) { return; }
+  }
+    pressed.clear();
+    func();
+  });
+  document.addEventListener('keyup', function(event) {
+    pressed.delete(event.code);
+  });
+}
 
-runOnKeys(() => {
-  setCss(iframe, {
-    right: '-50000px',
-  })
-}, 'KeyE', 'KeyW');
-
-runOnKeys(() => {
-  setCss(iframe, {
-    right: '5px',
-  })
-}, 'KeyQ', 'KeyW');
+function setCss(element, styles) {
+  for (s in styles) {
+    element.style[s] = styles[s];
+  }
+}
