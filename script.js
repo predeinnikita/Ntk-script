@@ -17,9 +17,9 @@ function initIframe() {
   setCss(iframe, {
     position: 'fixed',
     right: '-50000px',
-    top: '90%',
+    top: '80%',
     width: '658px',
-    height: '56px',
+    height: '150px',
     display: 'block',
     'z-index': '99999999',
     overflow: 'auto',
