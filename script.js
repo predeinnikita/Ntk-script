@@ -12,7 +12,7 @@ function start() {
 
 function initIframe() {
   let iframe = document.createElement('iframe');
-  iframe.src = 'https://predeinnikita.github.io/ntk-script/'
+  iframe.src = 'https://predeinnikita.github.io/Ntk-script/'
   document.body.insertAdjacentElement('beforeend', iframe);
   setCss(iframe, {
     position: 'fixed',
