@@ -8,6 +8,12 @@ function start() {
       right: iframe.style.right == '-50000px'? '5px': '-50000px'
     })
   }, 'KeyQ', 'KeyW');
+
+  runOnKeys(() => {
+    setCss(iframe, {
+      opacity: iframe.style.opacity == 0.3? 1: 0.3
+    })
+  }, 'KeyQ', 'KeyE');
 }
 
 function initIframe() {
@@ -24,7 +30,8 @@ function initIframe() {
     'z-index': '99999999',
     overflow: 'auto',
     'background-color': 'white',
-    opacity: 0.3
+    opacity: 0.3,
+    width: '604px'
   });
   
   return iframe;
