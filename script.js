@@ -1,7 +1,7 @@
-start();
+start('https://YOUR/SOME/SOURCE');
 
-function start() {
-  const iframe = initIframe();
+function start(url) {
+  const iframe = initIframe(url);
 
   runOnKeys(() => {
     setCss(iframe, {
@@ -16,9 +16,9 @@ function start() {
   }, 'KeyQ', 'KeyE');
 }
 
-function initIframe() {
+function initIframe(url) {
   let iframe = document.createElement('iframe');
-  iframe.src = 'https://predeinnikita.github.io/Ntk-script/'
+  iframe.src = url
   document.body.insertAdjacentElement('beforeend', iframe);
   setCss(iframe, {
     position: 'fixed',
